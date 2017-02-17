@@ -19,7 +19,6 @@ int main() {
   catch (const char* err) {
     cerr << err;
   }
-
   return 0;
 }
 
@@ -43,17 +42,7 @@ void transformWordVector(vector<string>& words)  throw(const char*) {
   if (!hasSameLengthWords(words)) {
     throw "words are not the same length!";
   }
-  vector<string> tempWords;
-
-  for (int i = 0; i < words.size(); ++i) {
-    string temp = "";
-    for (int j = 0; j < words[i].length(); ++j) {
-      temp += words[j][i];
-    }
-    tempWords.push_back(temp);
-  }
-  words = tempWords;
- 
+  words = transformWords(words);
 }
 
 bool hasSameLengthWords(const vector<string>& words) {
